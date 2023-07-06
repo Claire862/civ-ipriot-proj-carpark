@@ -4,11 +4,14 @@
 
 ## Vision
 
-To provide a modern, real-time parking space availability system for the City of Moondalup, helping drivers easily find available parking spots in public parking lots and improving overall parking experience and traffic flow.
+To provide a modern, real-time parking space availability system for the City of Moondalup, helping drivers easily find available parking spots
+ in public parking lots and improving overall parking experience and traffic flow.
 
 ## Background
 
-The city is looking to create a proof-of-concept (POC) to digitize their existing parking resources. The project is a low budget project to add sensors to **uncontrolled** parking lots (ones without a gate) in order to provide drivers and city administrators with live information about parking availability.
+The city is looking to create a proof-of-concept (POC) to digitize their existing parking resources.
+The project is a low budget project to add sensors to **uncontrolled** parking lots (ones without a gate) in order to provide drivers and city administrators
+with live information about parking availability.
 
 ## User Stories
 

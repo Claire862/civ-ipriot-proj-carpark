@@ -31,24 +31,18 @@ Finally, you can use `yaml` if you prefer.
 
 """
 
-import json
+def get_config(filename: str="config.toml") :
+
+    import toml
+    config = toml.load(filename)
+
+    return(config)
 
 
-def parse_config(config: dict) -> dict:
+
+def parse_config(config: dict, section: str) -> dict:
     """Parse the config file and return the values as a dictionary"""
-    # DONE: get the configuration from a parsed file
-
-    import json
-
-    with open('config.json', 'r') as f:
-        data = json.load(f)
-
-    return data['CarParks'][0]
-    # return {'location': data_carpark['location'], 'total_spaces': data_carpark['total-spaces'],
-    #        'broker_host': data_carpark['broker'], 'broker_port': data_carpark['port']}
-    # return {'location': 'TBD', 'total_spaces': 0, 'broker_host': 'TBD', 'broker_port': 0}
+    the_config = config[section]
+    return the_config
 
 
-#c = parse_config('config.json')
-#print(c)
-#print("{'location': 'TBD', 'total_spaces': 0, 'broker_host': 'TBD', 'broker_port': 0}")

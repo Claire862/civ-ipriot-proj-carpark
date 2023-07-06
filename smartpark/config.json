@@ -5,8 +5,11 @@
             "total-spaces": 130,
             "total-cars": 0,
             "location": "moondalup",
-            "broker": "localhost",
+            "broker": "127.0.0.1",
             "port": 1883,
+            "topic-root": "lot",
+            "topic-qualifier": "entry",
+            "is_stuff": "False",
             "Sensors": [
                 {
                     "name": "sensor1",
