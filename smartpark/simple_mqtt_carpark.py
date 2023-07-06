@@ -15,12 +15,7 @@ class CarPark(mqtt_device.MqttDevice):
         self._temperature = None
         self.client.on_message = self.on_message
         self.client.subscribe('sensor')
-        #self.client.subscribe(self.topic)
-        print(self.topic)
-
         self.client.loop_forever()
-
-
 
 
     @property
@@ -40,21 +35,13 @@ class CarPark(mqtt_device.MqttDevice):
         
     def _publish_event(self):
         readable_time = datetime.now().strftime('%H:%M')
-        print(
-            (
-                f"TIME: {readable_time}, "
-                + f"SPACES: {self.available_spaces}, "
-                + f"TEMPC: {self._temperature} "
-            )
-        )
+
         message = (
             f"TIME: {readable_time}, "
             + f"SPACES: {self.available_spaces}, "
             + f"TEMPC: {self._temperature}"
         )
         self.client.publish('display', message)
-        print('This is message from carpark')
-        print(message)
 
     def on_car_entry(self):
         self.total_cars += 1
@@ -68,7 +55,6 @@ class CarPark(mqtt_device.MqttDevice):
 
     def on_message(self, client, userdata, msg: MQTTMessage):
         payload = msg.payload.decode()
-        print(payload)
 
         # DONE : Extract temperature from payload
         payload_list = payload.split()
@@ -81,27 +67,11 @@ class CarPark(mqtt_device.MqttDevice):
 
 if __name__ == '__main__':
 
-    config1 = {'name': "raf-park",
-              'total-spaces': 130,
-              'total-cars': 0,
-              'location': 'L306',
-              'topic-root': "lot",
-              'broker': 'localhost',
-              'port': 1883,
-              'topic-qualifier': 'entry',
-              'is_stuff': False
-              }
-
     # DONE: Read config from file
     from config_parser import parse_config
     config = parse_config('config.json')
 
-
-
-
-
-
     car_park = CarPark(config)
-    print("Carpark initialized")
+
 
 

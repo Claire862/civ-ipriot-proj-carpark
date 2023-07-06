@@ -1,10 +1,6 @@
 
 import tkinter as tk
 
-from windowed_display import WindowedDisplay
-from mqtt_device import MqttDevice
-import paho.mqtt.client as paho
-import math
 from simple_mqtt_sensor import Sensor
 
 class CarDetector:
@@ -26,28 +22,20 @@ class CarDetector:
 
     def incoming_car(self):
         # DONE: implement this method to publish the detection via MQTT
-        print("Car goes in")
 
         detector_in = Sensor(config)
         detector_in.client.connect(detector_in.broker, detector_in.port)
         topic = detector_in._create_topic_string()
-        print(topic)
-        print("entry " + str(detector_in.temperature))
-        #detector_in.client.publish(detector_in._create_topic_string(), "entry " + str(detector_in.temperature))
         detector_in.client.publish('sensor', "entry " + str(detector_in.temperature))
 
 
 
     def outgoing_car(self):
         # DONE: implement this method to publish the detection via MQTT
-        print("Car goes out")
 
         detector_out = Sensor(config)
         detector_out.client.connect(detector_out.broker, detector_out.port)
         topic = detector_out._create_topic_string()
-        print(topic)
-        print("exit " + str(detector_out.temperature))
-        #detector_out.client.publish(detector_out._create_topic_string(), "exit " + str(detector_out.temperature))
         detector_out.client.publish('sensor', "exit " + str(detector_out.temperature))
 
 
