@@ -23,7 +23,7 @@ class Display(mqtt_device.MqttDevice):
 
     def on_message(self, client, userdata, msg):
         data = msg.payload.decode()
-        #self.display(*data.split(','))
+        self.display(*data.split(','))
 
         # DONE: Parse the message and extract free spaces,\
         #  temperature, time
