@@ -30,12 +30,7 @@ class Sensor(mqtt_device.MqttDevice):
 
 
 if __name__ == '__main__':
-    config1 = {'name': 'sensor',
-              'location': 'moondalup',
-              'topic-root': "lot",
-              'broker': 'localhost',
-              'port': 1883,
-              }
+
     # DONE: Read previous config from file instead of embedding
     from config_parser import parse_config
     config = parse_config('config.json')

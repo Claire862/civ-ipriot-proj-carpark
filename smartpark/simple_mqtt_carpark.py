@@ -57,7 +57,9 @@ class CarPark(mqtt_device.MqttDevice):
         payload = msg.payload.decode()
 
         # DONE : Extract temperature from payload
+        #create a list out of the message
         payload_list = payload.split()
+        #set the temperature attribute
         self._temperature = payload_list[1]
 
         if 'exit' in payload:

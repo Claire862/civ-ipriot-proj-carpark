@@ -12,7 +12,7 @@ from typing import Iterable
 # ------------------------------------------------------------------------------------#
 # You don't need to understand how to implement this class, just how to use it.       #
 # ------------------------------------------------------------------------------------#
-# TODO: got to the main section of this script **first** and run the CarParkDisplay.  #
+# DONE : got to the main section of this script **first** and run the CarParkDisplay.  #
 
 
 class WindowedDisplay:
@@ -67,7 +67,7 @@ class WindowedDisplay:
         self.window.update()
 
 # -----------------------------------------#
-# TODO: STUDENT IMPLEMENTATION STARTS HERE #
+# DONE : STUDENT IMPLEMENTATION STARTS HERE #
 # -----------------------------------------#
 from simple_mqtt_display import Display
 
@@ -94,6 +94,7 @@ class CarParkDisplay:
         from config_parser import parse_config
         config = parse_config('config.json')
 
+        # create display device
         display_device = Display(config)
 
         while True:

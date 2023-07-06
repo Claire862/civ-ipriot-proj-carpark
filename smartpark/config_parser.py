@@ -31,7 +31,6 @@ Finally, you can use `yaml` if you prefer.
 
 """
 
-import json
 
 
 def parse_config(config: dict) -> dict:
@@ -40,15 +39,11 @@ def parse_config(config: dict) -> dict:
 
     import json
 
+    #open and read the config file
     with open('config.json', 'r') as f:
         data = json.load(f)
 
+    #return the carpark data
     return data['CarParks'][0]
-    # return {'location': data_carpark['location'], 'total_spaces': data_carpark['total-spaces'],
-    #        'broker_host': data_carpark['broker'], 'broker_port': data_carpark['port']}
-    # return {'location': 'TBD', 'total_spaces': 0, 'broker_host': 'TBD', 'broker_port': 0}
 
 
-#c = parse_config('config.json')
-#print(c)
-#print("{'location': 'TBD', 'total_spaces': 0, 'broker_host': 'TBD', 'broker_port': 0}")
